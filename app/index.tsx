@@ -1,9 +1,6 @@
 import { Text, View } from "react-native";
+import OnboardingScreen from "./onboard";
 
 export default function Index() {
-  return (
-    <View className="justify-center items-center bg-black ">
-      <Text className=" text-blue-700 ">HOME SCREEN</Text>
-    </View>
-  );
+  return <OnboardingScreen />;
 }
