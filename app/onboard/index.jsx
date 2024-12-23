@@ -8,49 +8,13 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
+import { screens } from "../../data/onboard";
 
 const OnboardingScreen = () => {
   const router = useRouter();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const translateX = useRef(new Animated.Value(0)).current;
   const [currentScreen, setCurrentScreen] = useState(1);
-
-  const screens = [
-    {
-      id: 1,
-      title: "Your Long Title Goes Here",
-      description:
-        "Create and sell your own collectible and become the richest NFT in the world.",
-      buttonText: "Get Started",
-      cardStyle: "bg-gray-300",
-      hasImage: true,
-    },
-    {
-      id: 2,
-      title: "Your Long Title Goes Here",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      buttonText: "Next",
-      cardStyle: "bg-gray-300",
-      hasImage: true,
-    },
-    {
-      id: 3,
-      title: "Your Title Goes Here",
-      description: "You can schedule your work with us more easily.",
-      buttonText: "Next",
-      cardStyle: "bg-gray-800",
-      hasImage: false,
-    },
-    {
-      id: 4,
-      title: "Your Title Goes Here!",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porta ipsum.",
-      buttonText: "Finish",
-      cardStyle: "bg-gray-300",
-      hasImage: true,
-    },
-  ];
 
   const panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: () => true,
@@ -108,7 +72,7 @@ const OnboardingScreen = () => {
           if (currentScreen < screens.length) {
             setCurrentScreen((prev) => prev + 1);
           } else {
-            alert("Onboarding Complete!");
+            router.replace("/(auth)");
           }
         }}
       >
