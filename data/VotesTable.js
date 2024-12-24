@@ -10,7 +10,7 @@ import { users } from "./UsersTable";
 // vote_time (TIMESTAMP): The time the vote was cast.
 
 // votes.js
-export const votes = [
+export const votesCasts = [
   {
     vote_id: "V1",
     election_id: "E1",

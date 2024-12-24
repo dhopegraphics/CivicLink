@@ -14,3 +14,9 @@ export const getUserById = (userId) => {
 export const getElections = () => {
   return elections;
 };
+
+export const isEligibleToVote = (userId, registered_voters) => {
+  // Check if the user exists in the registered_voters table
+  const voter = registered_voters.find((voter) => voter.user_id === userId);
+  return !!voter; // Returns true if the user is found, false otherwise
+};
