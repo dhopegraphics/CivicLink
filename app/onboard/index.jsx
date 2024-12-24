@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import {
   View,
+  Image,
   Text,
   TouchableOpacity,
   Animated,
@@ -9,8 +10,15 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { screens } from "../../data/onboard";
+import { useThemeColor } from "@/hooks/useThemeColor";
+import { StatusBar } from "expo-status-bar";
 
 const OnboardingScreen = () => {
+  const backgroundColor = useThemeColor({}, "background");
+  const textColor = useThemeColor({}, "text");
+  const onboardTextColor = useThemeColor({}, "onboardText");
+  const onboardInactiveBarColor = useThemeColor({}, "InactiveBarOnboard");
+  const onboardActiveBarColor = useThemeColor({}, "activeBarOnboard");
   const router = useRouter();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const translateX = useRef(new Animated.Value(0)).current;
@@ -45,7 +53,11 @@ const OnboardingScreen = () => {
   const current = screens.find((screen) => screen.id === currentScreen);
 
   return (
-    <SafeAreaView className="flex-1 bg-white items-center justify-center">
+    <SafeAreaView
+      className="flex-1 items-center justify-center"
+      style={{ backgroundColor: backgroundColor }}
+    >
+      <StatusBar style="auto" />
       <Animated.View
         {...panResponder.panHandlers}
         style={{
@@ -54,12 +66,25 @@ const OnboardingScreen = () => {
         }}
         className={`${current.cardStyle} h-40 w-60 rounded-lg overflow-hidden mt-8`}
       >
-        {current.hasImage && <View className="h-full w-full bg-gray-400" />}
+        {current.hasImage && current.imageSrc && (
+          <View className="h-full w-full ">
+            <Image
+              source={current.imageSrc}
+              style={{ width: "100%", height: "100%", resizeMode: "contain" }}
+            />
+          </View>
+        )}
       </Animated.View>
-      <Text className="text-xl font-bold mt-8 text-center px-4">
+      <Text
+        className="text-2xl font-JakartaExtraBold mt-8 text-center px-4"
+        style={{ color: textColor }}
+      >
         {current.title}
       </Text>
-      <Text className="text-gray-500 text-center mt-2 px-6">
+      <Text
+        className="text-gray-500 font-JakartaSemiBold text-center mt-2 px-6"
+        style={{ color: onboardTextColor }}
+      >
         {current.description}
       </Text>
       <TouchableOpacity
@@ -76,18 +101,24 @@ const OnboardingScreen = () => {
           }
         }}
       >
-        <Text className="text-white text-lg mr-2">{current.buttonText}</Text>
+        <Text className="text-white font-JakartaSemiBold text-lg mr-2">
+          {current.buttonText}
+        </Text>
         {currentScreen !== 1 && currentScreen !== 4 && (
-          <Text className="text-white text-lg">→</Text>
+          <Text className="text-white font-JakartaSemiBold text-xl">→</Text>
         )}
       </TouchableOpacity>
       <View className="flex-row justify-center items-center mt-4">
         {screens.map((screen) => (
           <View
             key={screen.id}
-            className={`h-2 w-8 mx-1 rounded-full ${
-              screen.id === currentScreen ? "bg-black" : "bg-gray-300"
-            }`}
+            className={`h-2 w-8 mx-1 rounded-full `}
+            style={{
+              backgroundColor:
+                screen.id === currentScreen
+                  ? onboardActiveBarColor
+                  : onboardInactiveBarColor,
+            }}
           />
         ))}
       </View>

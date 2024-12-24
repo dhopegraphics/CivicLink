@@ -1,36 +1,42 @@
 export const screens = [
   {
     id: 1,
-    title: "Your Long Title Goes Here",
+    title: "Welcome to CivicLink",
     description:
-      "Create and sell your own collectible and become the richest NFT in the world.",
+      "Your one-stop platform for participating in Ghana’s digital electoral system.",
     buttonText: "Get Started",
-    cardStyle: "bg-gray-300",
+    cardStyle: "bg-blue-100",
     hasImage: true,
+    imageSrc: require("@/assets/images/BallotBoxVoter.png"), // Replace with actual image
   },
   {
     id: 2,
-    title: "Your Long Title Goes Here",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Empower Your Voice. Shape the Future.",
+    description:
+      "Join millions in making fair and free elections a reality. Together, we ensure progress for everyone.",
     buttonText: "Next",
-    cardStyle: "bg-gray-300",
+    cardStyle: "bg-green-100",
     hasImage: true,
+    imageSrc: require("@/assets/images/MandateToFreedom.png"), // Replace with actual image
   },
   {
     id: 3,
-    title: "Your Title Goes Here",
-    description: "You can schedule your work with us more easily.",
+    title: "Your Civic Responsibility Made Easy",
+    description:
+      "Register, vote, and engage with confidence. It's all at your fingertips.",
     buttonText: "Next",
-    cardStyle: "bg-gray-800",
-    hasImage: false,
+    cardStyle: "bg-purple-100",
+    hasImage: true,
+    imageSrc: require("@/assets/images/GhanaCountryballCasting.png"), // Replace with actual image
   },
   {
     id: 4,
-    title: "Your Title Goes Here!",
+    title: "Get Started Today!",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porta ipsum.",
+      "Sign up, explore, and start making an impact. Every vote counts, and so do you.",
     buttonText: "Finish",
-    cardStyle: "bg-gray-300",
+    cardStyle: "bg-orange-100",
     hasImage: true,
+    imageSrc: require("@/assets/images/celebratingVictory.png"), // Replace with actual image
   },
 ];

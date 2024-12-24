@@ -26,6 +26,8 @@
     "utils/*",
     "constants/*",
     "components/*",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "data/*",
+    "assets/*",
   ]
 }

@@ -85,12 +85,12 @@ export const candidates = [
   {
     candidate_id: "C007",
     election_id: elections[2].election_id,
-    first_name: users[5].first_name,
-    last_name: users[5].last_name,
+    first_name: "Akua",
+    last_name: "Frempong",
     party_id: parties[1].party_id,
     position: "National Democratic Party Flag Bearer",
     is_user: true, // Indicates whether the candidate is also a user
-    user_id: users[5].user_id, // Links to the users table if is_user is true
+    user_id: users[7].user_id, // Links to the users table if is_user is true
     constituency_id: null, // Null for nationwide positions like President
   },
 ];
