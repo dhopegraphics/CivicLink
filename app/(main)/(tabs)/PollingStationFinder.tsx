@@ -20,7 +20,9 @@ const PollingStationFinder = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Find Your Polling Station</Text>
+      <Text className=" font-JakartaBold text-blue-500 text-2xl mb-4 ml-4 ">
+        Find Your Polling Station
+      </Text>
       <MapView style={styles.map} initialRegion={initialRegion}>
         {pollingStations.map((station) => (
           <Marker

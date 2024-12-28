@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import ThirdPartyAuthBtn from "../../components/ThirdPartyAuthButton";
+import ThirdPartyAuthBtn from "@/components/ThirdPartyAuthButton";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { useColorScheme } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { router } from "expo-router";
 
-const SignUpScreen = () => {
+const signIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
-  const SignInText = useThemeColor({}, "onboardText");
 
   const theme = useColorScheme({}, "theme"); // Detect the current theme
   const isDarkMode = theme === "dark"; // Determine if it's dark mode
@@ -23,32 +22,18 @@ const SignUpScreen = () => {
     : require("@/assets/images/CivicLinkAppLogo.png");
 
   return (
-    <View
-      className="flex-1 items-center justify-center px-5"
-      style={{
-        backgroundColor: backgroundColor,
-      }}
-    >
-      <StatusBar style="auto" />
-      {/* Logo */}
-      <Image
-        source={logo}
-        style={{
-          resizeMode: "contain",
-          width: 100,
-          height: 100,
-        }}
-      />
+    <View style={{ backgroundColor: backgroundColor, flex: 1, padding: 8 }}>
+      <View className="justify-center self-center">
+        <Image
+          source={logo}
+          style={{
+            resizeMode: "contain",
+            width: 100,
+            height: 100,
+          }}
+        />
+      </View>
 
-      {/* Tagline */}
-      <Text
-        className="text-lg font-semibold text-gray-800 mb-8"
-        style={{ color: textColor }}
-      >
-        Work without limits
-      </Text>
-
-      {/* Email Input */}
       <View className="mb-4 pl-3 self-start w-full">
         <Text
           className="font-JakartaSemiBold text-lg"
@@ -72,7 +57,7 @@ const SignUpScreen = () => {
           className="font-JakartaSemiBold text-lg"
           style={{ color: textColor }}
         >
-          Choose a password
+          Enter Your Password
         </Text>
       </View>
 
@@ -98,40 +83,12 @@ const SignUpScreen = () => {
           />
         </TouchableOpacity>
       </View>
-      <View className="mb-4 pl-3 self-start w-full">
-        <Text
-          className="font-JakartaSemiBold text-lg"
-          style={{ color: textColor }}
-        >
-          Repeat the password
-        </Text>
-      </View>
-
-      {/* Password Input */}
-      <View className="flex-row h-14 items-center justify-between border rounded-3xl border-cyan-200 w-full mb-5">
-        <TextInput
-          className="flex-1 ml-4 mb-1 items-center  font-JakartaSemiBold h-10 text-base"
-          placeholder="password must match"
-          secureTextEntry={secureTextEntry}
-          placeholderTextColor={"gray"}
-          value={password}
-          onChangeText={setPassword}
-        />
-
-        <TouchableOpacity
-          onPress={() => setSecureTextEntry(!secureTextEntry)}
-          className="p-2  mr-3"
-        >
-          <Feather
-            name={secureTextEntry ? "eye-off" : "eye"}
-            size={20}
-            color="gray"
-          />
-        </TouchableOpacity>
-      </View>
 
       {/* Continue Button */}
-      <TouchableOpacity className="bg-gray-200 py-3 w-full items-center rounded-3xl mb-4">
+      <TouchableOpacity
+        onPress={() => router.replace("/(main)/(tabs)")}
+        className="bg-gray-200 py-3 w-full items-center rounded-3xl mb-4"
+      >
         <Text className="text-lg font-JakartaSemiBold text-gray-600">
           Continue
         </Text>
@@ -161,30 +118,18 @@ const SignUpScreen = () => {
       {/* Sign up with Google */}
       <ThirdPartyAuthBtn
         onPress={() => console.log("Sign up with Google Clicked")}
-        TextButton={"Sign up with Google"}
+        TextButton={"Sign in with Google"}
         iconName={"google"}
       />
 
       {/* Sign up with Apple */}
       <ThirdPartyAuthBtn
         onPress={() => console.log("Sign up with Apple Clicked")}
-        TextButton={"Sign up with Apple"}
+        TextButton={"Sign In with Apple"}
         iconName={"apple"}
       />
-      <View className="flex-row">
-        <Text className="font-JakartaSemiBold" style={{ color: textColor }}>
-          Already Have an Account ?
-        </Text>
-        <View className="ml-2">
-          <TouchableOpacity onPress={() => router.push("/(auth)/SignIn")}>
-            <Text className="font-JakartaBold" style={{ color: SignInText }}>
-              Sign In
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
     </View>
   );
 };
 
-export default SignUpScreen;
+export default signIn;
