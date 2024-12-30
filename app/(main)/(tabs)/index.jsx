@@ -13,12 +13,14 @@ import Card from "@/components/Card";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { router } from "expo-router";
+import DashboardProgressCard from "../../../components/DashboardProgressCard";
 
 const HomeDashboard = () => {
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
   const onBlueCardText = useThemeColor({}, "onBlueCardText");
   const BlueCard = useThemeColor({}, "cardBlueBackground");
+  const electionId = "E001";
 
   const TopInset = useSafeAreaInsets();
   return (
@@ -33,20 +35,7 @@ const HomeDashboard = () => {
         <Text style={styles.cardText}>Next election: November 5, 2024</Text>
         <Button title="View Details" onPress={() => {}} />
       </Card>
-      <Card title="Your Voting Status">
-        <Text style={styles.cardText}>Registered and ready to vote!</Text>
-        <Button
-          title="Check Registration"
-          onPress={() => {}}
-          variant="secondary"
-        />
-      </Card>
-      <Card title="Latest News">
-        <Text style={styles.cardText}>
-          New voting laws passed in your state
-        </Text>
-        <Button title="Read More" onPress={() => {}} />
-      </Card>
+      <DashboardProgressCard />
       <View
         className="  rounded-2xl  w-full h-36 "
         style={{
@@ -56,7 +45,7 @@ const HomeDashboard = () => {
         <ScrollView></ScrollView>
         <View className="p-4">
           <TouchableOpacity
-            onPress={() => router.navigate("/(main)/VotesStats")}
+            onPress={() => router.navigate("/(main)/VoteStats")}
           >
             <Text
               style={{ color: onBlueCardText }}
@@ -74,14 +63,9 @@ const HomeDashboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
   },
   scrollContent: {
     padding: 16,
-  },
-  title: {
-    marginBottom: 16,
-    color: theme.colors.primary,
   },
   cardText: {
     ...theme.typography.body,

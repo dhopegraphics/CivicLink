@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import {
@@ -6,12 +6,14 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import SummaryHeader from "../../constants/summaryHeader";
+import SummaryHeader from "../../components/summaryHeader";
+import UserVoteSumViewCard from "../../components/userVoteSumViewCard";
 
-const VoteStats = () => {
+const VoteStatistics = () => {
   const SafeTop = useSafeAreaInsets();
   const backgroundColor = useThemeColor({}, "background");
   const textColor = useThemeColor({}, "text");
+
   return (
     <SafeAreaView
       style={{
@@ -27,10 +29,9 @@ const VoteStats = () => {
       >
         Summary Votes
       </Text>
+      <UserVoteSumViewCard name={"Mensah Isaac"} />
     </SafeAreaView>
   );
 };
 
-export default VoteStats;
-
-const styles = StyleSheet.create({});
+export default VoteStatistics;

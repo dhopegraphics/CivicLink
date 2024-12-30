@@ -1,6 +1,8 @@
 // Records votes cast during an election.
 // Attributes:
 
+import { candidates } from "./CandidatesTable";
+import { elections } from "./ElectionsTable";
 import { users } from "./UsersTable";
 
 // vote_id (PK, UUID): Unique identifier for the vote.
@@ -13,16 +15,65 @@ import { users } from "./UsersTable";
 export const votesCasts = [
   {
     vote_id: "V1",
-    election_id: "E1",
-    user_id: users[0].user_id,
-    candidate_id: "C1",
+    election_id: "EL001",
+    user_id: "1",
+    candidate_id: "C001",
     vote_time: "2024-12-07T09:00:00Z",
   },
   {
     vote_id: "V2",
-    election_id: "E1",
-    user_id: users[1].user_id,
-    candidate_id: "C2",
+    election_id: "EL001",
+    user_id: "2",
+    candidate_id: "C002",
     vote_time: "2024-12-07T09:05:00Z",
+  },
+  {
+    vote_id: "V3",
+    election_id: "EL002",
+    user_id: "2",
+    candidate_id: "C004",
+    vote_time: "2024-12-07T09:10:00Z",
+  },
+  {
+    vote_id: "V4",
+    election_id: "EL002",
+    user_id: "1",
+    candidate_id: "C003",
+    vote_time: "2024-12-07T09:15:00Z",
+  },
+  {
+    vote_id: "V5",
+    election_id: "EL002",
+    user_id: "3",
+    candidate_id: "C005",
+    vote_time: "2024-12-07T09:20:00Z",
+  },
+  {
+    vote_id: "V6",
+    election_id: "EL002",
+    user_id: "4",
+    candidate_id: "C006",
+    vote_time: "2024-12-07T09:25:00Z",
+  },
+  {
+    vote_id: "V7",
+    election_id: "EL001",
+    user_id: "5",
+    candidate_id: "C002",
+    vote_time: "2024-12-07T09:30:00Z",
+  },
+  {
+    vote_id: "V8",
+    election_id: "EL002",
+    user_id: "6",
+    candidate_id: "C007",
+    vote_time: "2024-12-07T09:35:00Z",
+  },
+  {
+    vote_id: "V9",
+    election_id: "EL001",
+    user_id: "7",
+    candidate_id: "C001",
+    vote_time: "2024-12-07T09:40:00Z",
   },
 ];

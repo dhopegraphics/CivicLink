@@ -4,7 +4,7 @@ export default function Layout() {
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="VotesStats" options={{ headerShown: false }} />
+      <Stack.Screen name="VoteStats" options={{ headerShown: false }} />
     </Stack>
   );
 }

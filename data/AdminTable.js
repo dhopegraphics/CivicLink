@@ -14,28 +14,18 @@ import { users } from "./UsersTable";
 export const admins = [
   {
     admin_id: "A1",
-    user_id: users[0].user_id,
+    user_id: "1",
     password_hash: "hashed_password_here",
     role: "Election Officer",
-    permissions: [
-      permissions[0].permission_id,
-      permissions[1].permission_id,
-      permissions[2].permission_id,
-    ],
+    permissions: ["P001", "P002", "P003"],
     last_login: "2024-11-30T12:00:00Z",
   },
   {
     admin_id: "A2",
-    user_id: users[1].user_id,
+    user_id: "2",
     password_hash: "hashed_password_here",
     role: "Super Admin",
-    permissions: [
-      permissions[0].permission_id,
-      permissions[1].permission_id,
-      permissions[2].permission_id,
-      permissions[3].permission_id,
-      permissions[4].permission_id,
-    ],
+    permissions: ["P001", "P002", "P003", "P004", "P005"],
     last_login: "2024-11-29T15:00:00Z",
   },
 ];

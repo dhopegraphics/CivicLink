@@ -11,8 +11,6 @@
 // is_eligible (BOOLEAN): Whether the user is eligible to vote.
 // registered_date (TIMESTAMP): Date the user was registered.
 
-import { admins } from "./AdminTable";
-
 // users.js
 export const users = [
   {
@@ -26,7 +24,8 @@ export const users = [
     email: "kwame.mensah@example.com",
     gender: "Male",
     role: "admin", // Can be "user" or "admin"
-    permissions: admins[0].permissions,
+    permissions: ["P001", "P002", "P003"],
+    admin_id: "A1",
     is_eligibleToRegister: true,
     registered_date: "2023-01-15T08:00:00Z",
     occupation: "Teacher",

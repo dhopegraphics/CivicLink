@@ -1,9 +1,6 @@
 // Tracks the eligibility status of each voter for different elections.
 // Attributes:
 
-import { constituencies } from "./ConstituenciesTable";
-import { users } from "./UsersTable";
-
 // eligibility_id (PK, UUID): Unique identifier.
 // user_id (FK): Reference to the user.
 // election_id (FK): Reference to the election.
@@ -19,9 +16,9 @@ export const registered_voters = [
     last_name: "Mensah",
     date_of_birth: "1992-03-15",
     gender: "Male",
-    constituency_id: constituencies[0].constituency_id, // Links to constituencies table
+    constituency_id: "CST001", // Links to constituencies table
     is_user: true, // Indicates if the voter is also a user
-    user_id: users[0].user_id, // Links to users table if applicable
+    user_id: "1", // Links to users table if applicable
     registration_date: "2024-01-10T08:00:00Z",
   },
   {
@@ -31,9 +28,9 @@ export const registered_voters = [
     last_name: "Asiedu",
     date_of_birth: "1987-07-10",
     gender: "Female",
-    constituency_id: constituencies[0].constituency_id, // Links to constituencies table
+    constituency_id: "CST001", // Links to constituencies table
     is_user: true,
-    user_id: users[1].user_id,
+    user_id: "2",
     registration_date: "2024-01-15T09:30:00Z",
   },
   {
@@ -43,7 +40,7 @@ export const registered_voters = [
     last_name: "Appiah",
     date_of_birth: "1975-04-20",
     gender: "Male",
-    constituency_id: constituencies[1].constituency_id,
+    constituency_id: "CST002",
     is_user: false,
     user_id: null,
     registration_date: "2024-01-12T10:45:00Z",

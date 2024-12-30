@@ -8,6 +8,9 @@ export const parties = [
     current_flagbearer: "Alan Kyerematen",
     ideology: "Liberal Democracy",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/New_Patriotic_Party_logo.jpg/1200px-New_Patriotic_Party_logo.jpg",
+    color: "#0000FF",
   },
   {
     party_id: "P002",
@@ -17,6 +20,9 @@ export const parties = [
     current_flagbearer: "John Dramani Mahama",
     ideology: "Social Democracy",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NDC_Logo.jpg/1200px-NDC_Logo.jpg",
+    color: "#FF0000",
   },
   {
     party_id: "P003",
@@ -26,6 +32,9 @@ export const parties = [
     current_flagbearer: "Ivor Greenstreet",
     ideology: "Socialism",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/CPP_logo.jpg/1200px-CPP_logo.jpg",
+    color: "#00FF00",
   },
   {
     party_id: "P004",
@@ -35,6 +44,9 @@ export const parties = [
     current_flagbearer: "David Apasera",
     ideology: "Social Democracy",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PNC_logo.jpg/1200px-PNC_logo.jpg",
+    color: "#FFFF00",
   },
   {
     party_id: "P005",
@@ -44,6 +56,9 @@ export const parties = [
     current_flagbearer: "Brigitte Dzogbenuku",
     ideology: "Progressivism",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/PPP_logo.jpg/1200px-PPP_logo.jpg",
+    color: "#FFA500",
   },
   {
     party_id: "P006",
@@ -53,6 +68,9 @@ export const parties = [
     current_flagbearer: "Christian Kwabena Andrews",
     ideology: "Social Conservatism",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/GUM_logo.jpg/1200px-GUM_logo.jpg",
+    color: "#800080",
   },
   {
     party_id: "P007",
@@ -62,6 +80,9 @@ export const parties = [
     current_flagbearer: "Dr. Henry Lartey",
     ideology: "Domestication Policy",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/GCPP_logo.jpg/1200px-GCPP_logo.jpg",
+    color: "#008000",
   },
   {
     party_id: "P008",
@@ -71,6 +92,9 @@ export const parties = [
     current_flagbearer: "Hassan Ayariga",
     ideology: "Nationalism",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/APC_logo.jpg/1200px-APC_logo.jpg",
+    color: "#000000",
   },
   {
     party_id: "P009",
@@ -80,6 +104,9 @@ export const parties = [
     current_flagbearer: "Kofi Akpaloo",
     ideology: "Liberalism",
     headquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LPG_logo.jpg/1200px-LPG_logo.jpg",
+    color: "#FFD700",
   },
   {
     party_id: "P010",
@@ -89,14 +116,20 @@ export const parties = [
     current_flagbearer: "Akwasi Addai Odike",
     ideology: "Populism",
     headquarters: "Kumasi, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/UFP_logo.jpg/1200px-UFP_logo.jpg",
+    color: "#A52A2A",
   },
   {
     party_id: "P011",
-    name: "Independent",
-    founder: [],
-    founded_date: null, // No founding date for independents
-    current_flagbearer: null, // Independent candidates have no unified leader
+    name: "The New Force",
+    founder: ["Nana Kwame Bediako"],
+    founded_date: "2024-02-12",
+    current_flagbearer: "Nana Kwame Bediako",
     ideology: "Varied",
-    headquarters: null, // No headquarters for independent candidates
+    hheadquarters: "Accra, Ghana",
+    logoUri:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/APC_logo.jpg/1200px-APC_logo.jpg",
+    color: "#fff",
   },
 ];
