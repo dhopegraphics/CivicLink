@@ -1,10 +1,26 @@
 import React from "react";
 import { View, Image, StyleSheet, Dimensions, Text } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
+import { candidates } from "@/data/CandidatesTable";
+import { votesCasts } from "@/data/VotesTable";
+import { parties } from "@/data/PartiesTable";
+import { getCandidateStatsByElection } from "@/utils/CandidateStats";
+
+// Utility function to get initials
+const getInitials = (name) => {
+  return name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+};
 
 const ProgressBarWithImages = ({ progressData }) => {
   const screenWidth = Dimensions.get("window").width; // Full screen width
-  const progressBarWidth = screenWidth - 60; // Adjust width to leave some margin
+  const progressBarWidth = screenWidth - 70; // Adjust width to leave some margin
+
+  // Calculate cumulative widths
+  let cumulativePercentage = 0;
 
   return (
     <View style={styles.container}>
@@ -14,9 +30,10 @@ const ProgressBarWithImages = ({ progressData }) => {
       >
         {progressData.map((item, index) => {
           const segmentWidth =
-            index === 0
-              ? `${item.percentage}%`
-              : `${item.percentage - progressData[index - 1].percentage}%`;
+            (parseFloat(item.percentage) / 100) * progressBarWidth -
+            cumulativePercentage;
+
+          cumulativePercentage += segmentWidth;
 
           return (
             <View
@@ -25,64 +42,70 @@ const ProgressBarWithImages = ({ progressData }) => {
                 styles.segment,
                 {
                   width: segmentWidth,
-                  backgroundColor: item.color,
+                  backgroundColor: item.party.color,
                 },
               ]}
             />
           );
         })}
       </View>
+
+      {/* Markers, Labels, and Images */}
       {progressData.map((item, index) => {
-        // Calculate the exact pixel position for each marker
-        const markerPosition = (item.percentage / 100) * progressBarWidth;
+        const markerPosition =
+          (parseFloat(item.percentage) / 100) * progressBarWidth;
 
         return (
           <React.Fragment key={index}>
-            {/* Triangle marker */}
             <View
               style={{
                 position: "absolute",
-                left: markerPosition,
-                transform: [
-                  { translateX: 2 }, // Place at the end of the segment
-                ],
+                left: markerPosition + 16, // Center the text
+                top: 2,
+              }}
+            >
+              <Text style={{ fontSize: 8, fontWeight: "bold" }}>
+                {getInitials(item.party.name)}
+              </Text>
+            </View>
+            {/* Triangle Marker */}
+            <View
+              style={{
+                position: "absolute",
+                left: markerPosition + 8, // Center the triangle horizontally
                 top: 27,
-                alignItems: "center",
               }}
             >
               <Entypo name="triangle-up" size={24} color="white" />
             </View>
 
+            {/* Percentage Label */}
             <View
               style={{
                 position: "absolute",
-                left: markerPosition,
-                transform: [
-                  { translateX: 4 }, // Place at the end of the segment
-                ],
+                left: markerPosition + 13, // Center the text
                 top: 62,
-                alignItems: "center",
               }}
             >
-              <Text className="font-JakartaBold text-xs">
-                {item.percentage}%
+              <Text style={{ fontSize: 8, fontWeight: "bold" }}>
+                {parseFloat(item.percentage)}%
               </Text>
             </View>
 
-            {/* Image */}
+            {/* Candidate Image */}
             <View
               style={[
                 styles.imageContainer,
                 {
                   position: "absolute",
-                  left: markerPosition,
-                  transform: [
-                    { translateX: 4 }, // Center the image horizontally
-                  ],
+                  left: markerPosition + 10, // Center the image
                 },
               ]}
             >
-              <Image source={item.image} style={styles.iconImage} />
+              <Image
+                source={{ uri: item.party.logoUri }}
+                style={styles.iconImage}
+              />
             </View>
           </React.Fragment>
         );
@@ -92,30 +115,14 @@ const ProgressBarWithImages = ({ progressData }) => {
 };
 
 export default function ProgressBarReader() {
-  const progressData = [
-    {
-      percentage: 10,
-      image: require("@/assets/images/CivicLink-Splash-icon.png"),
-      color: "#FF5733",
-    },
-    {
-      percentage: 30,
-      image: require("@/assets/images/CivicLinkAppLogoLight.png"),
-      color: "#33FF57",
-    },
-    {
-      percentage: 60,
-      image: require("@/assets/images/GhanaCountryballCasting.png"),
-      color: "#3357FF",
-    },
-    {
-      percentage: 90,
-      image: require("@/assets/images/MandateToFreedom.png"),
-      color: "#FFC300",
-    },
-  ];
+  const stats = getCandidateStatsByElection(
+    "EL001",
+    candidates,
+    votesCasts,
+    parties
+  );
 
-  return <ProgressBarWithImages progressData={progressData} />;
+  return <ProgressBarWithImages progressData={stats.candidateVoteCounts} />;
 }
 
 const styles = StyleSheet.create({

@@ -27,7 +27,7 @@ export const candidates = [
     election_id: "EL001",
     first_name: "Akosua",
     last_name: "Ofori",
-    party_id: "P005",
+    party_id: "P002",
     position: "President",
     is_user: false,
     user_id: null,
@@ -87,5 +87,27 @@ export const candidates = [
     is_user: true, // Indicates whether the candidate is also a user
     user_id: "8", // Links to the users table if is_user is true
     constituency_id: null, // Null for nationwide positions like President
+  },
+  {
+    candidate_id: "C008",
+    election_id: "EL001",
+    first_name: "Nana Kwame",
+    last_name: "Bediako",
+    party_id: "P011",
+    position: "President",
+    is_user: true, // Indicates whether the candidate is also a user
+    user_id: null, // Links to the users table if is_user is true
+    constituency_id: null, // Null for nationwide positions like President
+  },
+  {
+    candidate_id: "C009",
+    election_id: "EL001",
+    first_name: "Akwasi Addai",
+    last_name: "Odike",
+    party_id: "P010",
+    position: "President",
+    is_user: false,
+    user_id: null,
+    constituency_id: null,
   },
 ];

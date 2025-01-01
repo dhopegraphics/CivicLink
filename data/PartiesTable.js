@@ -2,7 +2,7 @@
 export const parties = [
   {
     party_id: "P001",
-    name: "New Patriotic Party (NPP)",
+    name: "New Patriotic Party",
     founder: ["J. B. Danquah", "K. A. Busia", "S. D. Dombo"],
     founded_date: "1992-07-28",
     current_flagbearer: "Alan Kyerematen",
@@ -14,7 +14,7 @@ export const parties = [
   },
   {
     party_id: "P002",
-    name: "National Democratic Congress (NDC)",
+    name: "National Democratic Congress",
     founder: ["Jerry John Rawlings"],
     founded_date: "1992-06-10",
     current_flagbearer: "John Dramani Mahama",
@@ -22,11 +22,11 @@ export const parties = [
     headquarters: "Accra, Ghana",
     logoUri:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/NDC_Logo.jpg/1200px-NDC_Logo.jpg",
-    color: "#FF0000",
+    color: "#00b53c",
   },
   {
     party_id: "P003",
-    name: "Convention People's Party (CPP)",
+    name: "Convention People's Party",
     founder: ["Kwame Nkrumah"],
     founded_date: "1949-06-12",
     current_flagbearer: "Ivor Greenstreet",
@@ -38,7 +38,7 @@ export const parties = [
   },
   {
     party_id: "P004",
-    name: "People's National Convention (PNC)",
+    name: "People's National Convention",
     founder: ["Hilla Limann"],
     founded_date: "1992-07-27",
     current_flagbearer: "David Apasera",
@@ -50,7 +50,7 @@ export const parties = [
   },
   {
     party_id: "P005",
-    name: "Progressive People's Party (PPP)",
+    name: "Progressive People's Party",
     founder: ["Paa Kwesi Nduom"],
     founded_date: "2012-02-25",
     current_flagbearer: "Brigitte Dzogbenuku",
@@ -62,7 +62,7 @@ export const parties = [
   },
   {
     party_id: "P006",
-    name: "Ghana Union Movement (GUM)",
+    name: "Ghana Union Movement",
     founder: ["Christian Kwabena Andrews"],
     founded_date: "2019-03-09",
     current_flagbearer: "Christian Kwabena Andrews",
@@ -74,7 +74,7 @@ export const parties = [
   },
   {
     party_id: "P007",
-    name: "Great Consolidated Popular Party (GCPP)",
+    name: "Great Consolidated Popular Party",
     founder: ["Dan Lartey"],
     founded_date: "1996-01-01",
     current_flagbearer: "Dr. Henry Lartey",
@@ -86,7 +86,7 @@ export const parties = [
   },
   {
     party_id: "P008",
-    name: "All People's Congress (APC)",
+    name: "All People's Congress",
     founder: ["Hassan Ayariga"],
     founded_date: "2016-01-01",
     current_flagbearer: "Hassan Ayariga",
@@ -98,7 +98,7 @@ export const parties = [
   },
   {
     party_id: "P009",
-    name: "Liberal Party of Ghana (LPG)",
+    name: "Liberal Party of Ghana",
     founder: ["Kofi Akpaloo"],
     founded_date: "2020-01-01",
     current_flagbearer: "Kofi Akpaloo",
@@ -110,7 +110,7 @@ export const parties = [
   },
   {
     party_id: "P010",
-    name: "United Front Party (UFP)",
+    name: "United Front Party",
     founder: ["Akwasi Addai Odike"],
     founded_date: "2011-08-12",
     current_flagbearer: "Akwasi Addai Odike",

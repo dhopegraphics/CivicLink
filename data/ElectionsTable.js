@@ -14,8 +14,8 @@ export const elections = [
     election_type: "general", // "general" or "inclusive"
     election_name: "2024 Presidential Election",
     organizer_id: "A1", // User who created the election
-    start_date: "2024-12-01T08:00:00Z",
-    end_date: "2024-12-15T17:00:00Z",
+    start_date: "2025-01-01T22:45:00Z", // Upcoming election (January 2025)
+    end_date: "2025-01-03T17:00:00Z",
     participationRestriction: null,
   },
   {
@@ -23,17 +23,17 @@ export const elections = [
     election_type: "general", // "general" or "inclusive"
     election_name: "2024 Parliamentary Election",
     organizer_id: "A1", // User who created the election
-    start_date: "2024-12-01T08:00:00Z",
-    end_date: "2024-12-15T17:00:00Z",
+    start_date: "2025-01-01T23:05:00Z", // Upcoming election (January 2025)
+    end_date: "2025-01-25T17:00:00Z",
     participationRestriction: null,
   },
   {
     election_id: "EL003",
-    election_type: "inclusive",
+    election_type: "inclusive", // "general" or "inclusive"
     election_name: "National Democratic Party Flag Bearer Election",
     organizer_id: "U002", // Party leader
-    start_date: "2024-11-01T08:00:00Z",
-    end_date: "2024-11-05T17:00:00Z",
+    start_date: "2025-01-15T08:00:00Z", // Upcoming election (January 2025)
+    end_date: "2025-01-30T17:00:00Z",
     participationRestriction: "party members",
   },
 ];

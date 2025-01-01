@@ -7,10 +7,6 @@
 // role (ENUM): Role of the admin (Super Admin, Election Officer, etc.).
 // last_login (TIMESTAMP): Last login time.
 
-import { permissions } from "./PermissionsTable";
-import { users } from "./UsersTable";
-
-// admin.js
 export const admins = [
   {
     admin_id: "A1",
