@@ -73,12 +73,13 @@ const HomeDashboard = () => {
             >
               General Elections
             </Text>
-            {generalElections.map((election) => (
+            {generalElections.map((election, index) => (
               <ElectionItem
                 key={election.election_id}
                 election={election}
                 textColor={textColor}
                 style={{ width: "48%" }} // Allows two items per row
+                index={index}
               />
             ))}
           </View>
@@ -93,11 +94,12 @@ const HomeDashboard = () => {
             >
               Inclusive Elections
             </Text>
-            {inclusiveElections.map((election) => (
+            {inclusiveElections.map((election, index) => (
               <ElectionItem
                 key={election.election_id}
                 election={election}
                 textColor={textColor}
+                index={index + 2}
               />
             ))}
           </View>

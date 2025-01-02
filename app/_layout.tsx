@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { ThemeProvider } from "@/context/ThemeContext";
 SplashScreen.preventAutoHideAsync();
 import "../global.css";
+import { PermissionsProvider } from "../context/PermissionsContext";
 
 const MainLayout = () => {
   const [loaded, error] = useFonts({
@@ -41,10 +42,12 @@ const MainLayout = () => {
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <MainLayout />
-      </GestureHandlerRootView>
-    </ThemeProvider>
+    <PermissionsProvider>
+      <ThemeProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <MainLayout />
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </PermissionsProvider>
   );
 }

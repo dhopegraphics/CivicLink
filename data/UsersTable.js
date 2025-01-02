@@ -11,6 +11,24 @@
 // is_eligible (BOOLEAN): Whether the user is eligible to vote.
 // registered_date (TIMESTAMP): Date the user was registered.
 
+export const currentUser = {
+  user_id: "10",
+  first_name: "Isaac",
+  last_name: "Mensah",
+  date_of_birth: "2003-04-07",
+  national_id: "GHA-364595239",
+  address: "Prestea, Western Region",
+  phone_number: "+233 597959032",
+  email: "insmensah@example.com",
+  gender: "Male",
+  role: "user", // Can be "user" or "admin"
+  permissions: ["P001", "P002", "P003"],
+  admin_id: "A1",
+  is_eligibleToRegister: true,
+  registered_date: "2023-01-15T08:00:00Z",
+  occupation: "Teacher",
+};
+
 // users.js
 export const users = [
   {
@@ -42,7 +60,9 @@ export const users = [
     gender: "Female",
     role: "user",
     permissions: [],
+    admin_id: null,
     is_eligibleToRegister: true,
+
     registered_date: "2023-02-20T08:00:00Z",
     occupation: "Teacher",
   },
@@ -58,6 +78,7 @@ export const users = [
     gender: "Male",
     role: "user",
     permissions: [],
+    admin_id: null,
     is_eligibleToRegister: false,
     registered_date: "2023-05-10T08:00:00Z",
     occupation: "Unemployed",
@@ -74,6 +95,7 @@ export const users = [
     gender: "Female",
     role: "user",
     permissions: [],
+    admin_id: null,
     is_eligibleToRegister: true,
     registered_date: "2023-03-12T08:00:00Z",
     occupation: "Nurse",
@@ -90,6 +112,7 @@ export const users = [
     gender: "Male",
     role: "user",
     permissions: [],
+    admin_id: null,
     is_eligibleToRegister: true,
     registered_date: "2023-06-25T08:00:00Z",
     occupation: "Fisherman",
@@ -106,6 +129,7 @@ export const users = [
     gender: "Female",
     role: "user",
     permissions: [],
+    admin_id: null,
     is_eligibleToRegister: true,
     registered_date: "2023-07-14T08:00:00Z",
     occupation: "Student",
@@ -122,6 +146,7 @@ export const users = [
     gender: "Male",
     role: "user",
     permissions: [],
+    admin_id: null,
     is_eligibleToRegister: true,
     registered_date: "2023-08-01T08:00:00Z",
     occupation: "Electrician",
@@ -138,6 +163,7 @@ export const users = [
     gender: "Female",
     role: "admin",
     permissions: ["P001", "P005"],
+    admin_id: "A2",
     is_eligibleToRegister: true,
     registered_date: "2023-09-18T08:00:00Z",
     occupation: "Civil Servant",
@@ -154,6 +180,7 @@ export const users = [
     gender: "Female",
     role: "admin",
     permissions: ["P001", "P005"],
+    admin_id: "A3",
     is_eligibleToRegister: true,
     registered_date: "2023-09-18T08:00:00Z",
     occupation: "Civil Servant",

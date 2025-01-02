@@ -6,7 +6,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { calculateTimeLeft } from "./timeLeftCalc";
 import ParliamentaryVotesPreview from "../components/ParliamentaryElectionsPreview";
 
-const Timer = ({ targetDate, onTimerEnd }) => {
+const Timer = ({ targetDate, onTimerEnd, backgroundColor, electionData }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Timer = ({ targetDate, onTimerEnd }) => {
   return (
     <View
       style={{
-        backgroundColor: "black",
+        backgroundColor: backgroundColor,
         width: 165,
         height: 165,
         paddingHorizontal: 15,
@@ -39,41 +39,44 @@ const Timer = ({ targetDate, onTimerEnd }) => {
         className=" flex-row  mt-8 mb-6 "
         style={{ justifyContent: "space-between" }}
       >
-        <Text className=" font-JakartaBold" style={{ color: "white" }}>
+        <Text className=" font-JakartaBold" style={{ color: "black" }}>
           TIME
         </Text>
       </View>
 
       <View className="flex-row justify-center items-center">
-        <AntDesign name="clockcircleo" size={30} color="white" />
+        <AntDesign name="clockcircleo" size={30} color="black" />
         <Text
-          className="font-JakartaBold ml-2 text-white"
+          className="font-JakartaBold ml-2 text-black"
           style={{ fontSize: 27 }}
         >
-          {timeLeft.hours} :
+          {timeLeft.hours}:
         </Text>
-        <Text
-          className="font-JakartaBold ml-2  text-white"
-          style={{ fontSize: 27 }}
-        >
+        <Text className="font-JakartaBold  text-black" style={{ fontSize: 27 }}>
           {timeLeft.minutes}
         </Text>
         <Text
-          className="font-JakartaBold mt-4 ml-1 text-white"
+          className="font-JakartaBold mt-4 ml-1 text-black"
           style={{ fontSize: 10 }}
         >
           {timeLeft.seconds}s
         </Text>
       </View>
 
-      <Text className="font-JakartaMedium text-left  text-white">
+      <Text className="font-JakartaMedium text-left  text-black">
         Starts in {timeLeft.days} days
+      </Text>
+      <Text className="font-JakartaBold  text-black" style={{ fontSize: 10.5 }}>
+        {electionData.election_name}
       </Text>
     </View>
   );
 };
 
-export const ElectionItem = ({ election, textColor }) => {
+export const ElectionItem = ({ election, textColor, index }) => {
+  const colors = ["#94dafb", "#ff9a62", "#fede67", "#c9a0ff", "#94dafb"];
+  const backgroundColor = colors[index % colors.length]; // Cycle through colors
+
   const currentDate = new Date();
   const startDate = new Date(election.start_date);
   const endDate = new Date(election.end_date);
@@ -93,6 +96,8 @@ export const ElectionItem = ({ election, textColor }) => {
         <Timer
           targetDate={startDate}
           onTimerEnd={() => setIsTimerActive(false)}
+          backgroundColor={backgroundColor} // Pass the color here
+          electionData={election}
         />
       ) : (
         <>

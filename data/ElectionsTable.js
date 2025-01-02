@@ -14,7 +14,7 @@ export const elections = [
     election_type: "general", // "general" or "inclusive"
     election_name: "2024 Presidential Election",
     organizer_id: "A1", // User who created the election
-    start_date: "2025-01-01T22:45:00Z", // Upcoming election (January 2025)
+    start_date: "2025-01-02T10:45:00Z", // Upcoming election (January 2025)
     end_date: "2025-01-03T17:00:00Z",
     participationRestriction: null,
   },
@@ -23,7 +23,7 @@ export const elections = [
     election_type: "general", // "general" or "inclusive"
     election_name: "2024 Parliamentary Election",
     organizer_id: "A1", // User who created the election
-    start_date: "2025-01-01T23:05:00Z", // Upcoming election (January 2025)
+    start_date: "2025-01-02T11:05:00Z", // Upcoming election (January 2025)
     end_date: "2025-01-25T17:00:00Z",
     participationRestriction: null,
   },
