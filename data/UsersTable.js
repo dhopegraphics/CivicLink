@@ -185,4 +185,21 @@ export const users = [
     registered_date: "2023-09-18T08:00:00Z",
     occupation: "Civil Servant",
   },
+  {
+    user_id: "10",
+    first_name: "Isaac",
+    last_name: "Mensah",
+    date_of_birth: "2003-04-07",
+    national_id: "GHA-364595239",
+    address: "Prestea, Western Region",
+    phone_number: "+233 597959032",
+    email: "insmensah@example.com",
+    gender: "Male",
+    role: "user", // Can be "user" or "admin"
+    permissions: ["P001", "P002", "P003"],
+    admin_id: "A1",
+    is_eligibleToRegister: true,
+    registered_date: "2023-01-15T08:00:00Z",
+    occupation: "Teacher",
+  },
 ];

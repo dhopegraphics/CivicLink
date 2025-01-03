@@ -32,7 +32,7 @@ export const elections = [
     election_type: "inclusive", // "general" or "inclusive"
     election_name: "National Democratic Party Flag Bearer Election",
     organizer_id: "U002", // Party leader
-    start_date: "2025-01-15T08:00:00Z", // Upcoming election (January 2025)
+    start_date: "2025-01-03T09:40:00Z", // Upcoming election (January 2025)
     end_date: "2025-01-30T17:00:00Z",
     participationRestriction: "party members",
   },

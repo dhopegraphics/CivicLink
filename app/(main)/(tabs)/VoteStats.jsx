@@ -6,8 +6,8 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import SummaryHeader from "../../components/summaryHeader";
-import UserVoteSumViewCard from "../../components/userVoteSumViewCard";
+import SummaryHeader from "@/components/summaryHeader";
+import UserVoteSumViewCard from "@/components/userVoteSumViewCard";
 
 const VoteStatistics = () => {
   const SafeTop = useSafeAreaInsets();

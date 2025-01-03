@@ -6,4 +6,5 @@ export const icon = {
   PollingStationFinder: (props) => (
     <Feather name="compass" size={24} {...props} />
   ),
+  VoteStats: (props) => <Feather name="pie-chart" size={24} {...props} />,
 };

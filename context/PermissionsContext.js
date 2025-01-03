@@ -1,16 +1,18 @@
 import React, { createContext, useContext, useState } from "react";
 import { permissions } from "../data/PermissionsTable";
+import { currentUser } from "../data/UsersTable";
 
 // Create the context
 const PermissionsContext = createContext();
 
 // Provider component
 export const PermissionsProvider = ({ children }) => {
-  const [userPermissions, setUserPermissions] = useState(permissions);
-
   return (
     <PermissionsContext.Provider
-      value={{ userPermissions, setUserPermissions }}
+      value={{
+        permissions,
+        currentUser,
+      }}
     >
       {children}
     </PermissionsContext.Provider>

@@ -106,7 +106,7 @@ export const ElectionItem = ({ election, textColor, index }) => {
           ) : election.election_id === "EL002" ? (
             <ParliamentaryVotesPreview ElectionData={election} />
           ) : (
-            <Text className="font-JakartaMedium">
+            <Text className="font-JakartaMedium text-white ">
               Default Election Component
             </Text>
           )}

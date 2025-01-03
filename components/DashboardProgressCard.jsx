@@ -11,6 +11,7 @@ import { parties } from "@/data/PartiesTable";
 import { getCandidateStatsByElection } from "@/utils/CandidateStats";
 
 const DashboardProgressCard = () => {
+  const BlueCard = useThemeColor({}, "cardBlueBackground");
   // Function to fetch and update the stats
   const fetchStats = () => {
     const stats = getCandidateStatsByElection(
@@ -46,7 +47,10 @@ const DashboardProgressCard = () => {
   }, []);
 
   return (
-    <View className=" bg-slate-300 w-[100%] h-52 mb-4 rounded-3xl ">
+    <View
+      style={{ backgroundColor: BlueCard }}
+      className=" w-[100%] h-52 mb-4 rounded-3xl "
+    >
       <View className="flex-row justify-between pl-4 mt-4">
         <View className="flex-row items-center">
           <Text className="text-xl font-JakartaBold mr-2  text-center">

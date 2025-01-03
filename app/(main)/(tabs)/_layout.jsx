@@ -20,6 +20,13 @@ export default function TabLayout() {
           headerShown: false,
         }}
       />
+      <Tabs.Screen
+        name="VoteStats"
+        options={{
+          title: "Stats",
+          headerShown: false,
+        }}
+      />
     </Tabs>
   );
 }
