@@ -21,8 +21,27 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { elections } from "@/data/ElectionsTable";
 import { ElectionItem } from "@/utils/ElectionTimer";
 import TabChangeButton from "../../../components/tabChangeConstituencyButton";
+import LeadMemberPreview from "../../../components/LeadMemberPreview";
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
+const ITEM_WIDTH = 200; // Width of each item including margins
 
 const HomeDashboard = () => {
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  const handleScroll = (event) => {
+    const offsetX = event.nativeEvent.contentOffset.x;
+
+    // Calculate the nearest index with a threshold
+    const currentIndex = Math.round(offsetX / ITEM_WIDTH);
+    const exactOffset = currentIndex * ITEM_WIDTH;
+
+    // Check if the current position is within a snapping threshold
+    const threshold = ITEM_WIDTH * 0.3; // 30% of the item width
+    if (Math.abs(offsetX - exactOffset) < threshold) {
+      setFocusedIndex(currentIndex);
+    }
+  };
+
   const [activeConstituencyTab, setActiveConstituencyTab] =
     useState("Constituency");
 
@@ -138,29 +157,44 @@ const HomeDashboard = () => {
               </View>
             </View>
             {/* for candidates details */}
-            <View>
-              {/* PROFILE */}
-              <View className="flex-row justify-between px-4 ">
-                <Image
-                  style={{
-                    width: 50,
-                    height: 50,
-                    borderRadius: 30,
-                    backgroundColor: "white",
-                  }}
-                />
-                <AntDesign name="earth" size={45} color="white" />
-              </View>
-              <View className="p-4 flex-row">
-                <Text className="text-lg font-bold text-white">
-                  Candidate Name
-                </Text>
-                <Text className="text-lg font-bold text-white">30%</Text>
-              </View>
-            </View>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              pagingEnabled={true} // Enables snapping to each child view
+              contentContainerStyle={styles.scrollViewContent}
+              decelerationRate="normal"
+              snapToInterval={ITEM_WIDTH} // Width of each item including padding/margin
+              snapToAlignment="center"
+              onScroll={handleScroll} // Track the current scroll position
+              scrollEventThrottle={16} // Increase scroll event frequency
+            >
+              {/* Render multiple LeadMemberPreview components */}
+              <LeadMemberPreview
+                CandidateName={"Isaac Mensah"}
+                voteAcquired={"240"}
+                outOfVote={"500"}
+                TopVotePercentage={"50%"}
+              />
+              <LeadMemberPreview
+                CandidateName={"Nathaniel Mensah"}
+                voteAcquired={"500"}
+                outOfVote={"1000"}
+                TopVotePercentage={"50%"}
+              />
+              <LeadMemberPreview
+                CandidateName={"Rudolf Quansah "}
+                voteAcquired={"350"}
+                outOfVote={"400"}
+                TopVotePercentage={"70%"}
+                PreviewWidth={ITEM_WIDTH}
+              />
+              {/* Add as many as needed */}
+            </ScrollView>
           </View>
 
-          <View></View>
+          <View>
+            <Text style={styles.focusText}>Focused Index: {focusedIndex}</Text>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -197,6 +231,9 @@ const styles = StyleSheet.create({
   },
   activeText: {
     color: "#fff", // Active text color
+  },
+  scrollViewContent: {
+    paddingHorizontal: 25, // Add padding to the sides of the scroll view
   },
 });
 
