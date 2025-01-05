@@ -8,25 +8,25 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { theme } from "@/hooks/theme";
 import Button from "@/components/Button";
 import Feather from "@expo/vector-icons/Feather";
 import Card from "@/components/Card";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { router } from "expo-router";
-import AntDesign from "@expo/vector-icons/AntDesign";
-
 import { elections } from "@/data/ElectionsTable";
 import { ElectionItem } from "@/utils/ElectionTimer";
 import TabChangeButton from "../../../components/tabChangeConstituencyButton";
 import LeadMemberPreview from "../../../components/LeadMemberPreview";
+import { candidates } from "../../../data/CandidatesTable";
+import { parliamentaryCandidates } from "../../../utils/ParliamentaryCandidatesDataAccess";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
-const ITEM_WIDTH = 200; // Width of each item including margins
+const ITEM_WIDTH = 350; // Width of each item including margins
 
 const HomeDashboard = () => {
+  const ParliamentaryCandidatesDataAccess = parliamentaryCandidates(candidates);
+
   const [focusedIndex, setFocusedIndex] = useState(0);
   const handleScroll = (event) => {
     const offsetX = event.nativeEvent.contentOffset.x;
@@ -138,19 +138,24 @@ const HomeDashboard = () => {
           </View>
         )}
       </View>
+
       <View className="p-2">
         {/* Tab space to check leaderBoard parliamentary votes stats */}
-        <View className="bg-slate-300  rounded-3xl " style={{ height: 400 }}>
+        <View
+          className="rounded-3xl "
+          style={{ height: 400, backgroundColor: "#333645" }}
+        >
           {/* for top part of the screen */}
-          <View className="bg-slate-900 w-full h-60">
-            <View className="flex-1 flex-row  p-6 justify-between ">
+          <View className="bg-slate-900 w-full rounded-b-none rounded-3xl h-60">
+            <View className="flex-1 flex-row  p-6 justify-between mb-8">
               {/* Switch Button */}
+
               <TabChangeButton
                 activeConstituencyTab={activeConstituencyTab}
                 setActiveConstituencyTab={setActiveConstituencyTab}
               />
               {/* share button*/}
-              <View className="mr-4">
+              <View className="mr-4 mt-2 ">
                 <TouchableOpacity className="bg-slate-200 w-10 h-10 rounded-lg items-center justify-center ">
                   <Feather name="share" size={24} color="black" />
                 </TouchableOpacity>
@@ -169,31 +174,22 @@ const HomeDashboard = () => {
               scrollEventThrottle={16} // Increase scroll event frequency
             >
               {/* Render multiple LeadMemberPreview components */}
-              <LeadMemberPreview
-                CandidateName={"Isaac Mensah"}
-                voteAcquired={"240"}
-                outOfVote={"500"}
-                TopVotePercentage={"50%"}
-              />
-              <LeadMemberPreview
-                CandidateName={"Nathaniel Mensah"}
-                voteAcquired={"500"}
-                outOfVote={"1000"}
-                TopVotePercentage={"50%"}
-              />
-              <LeadMemberPreview
-                CandidateName={"Rudolf Quansah "}
-                voteAcquired={"350"}
-                outOfVote={"400"}
-                TopVotePercentage={"70%"}
-                PreviewWidth={ITEM_WIDTH}
-              />
-              {/* Add as many as needed */}
+
+              {ParliamentaryCandidatesDataAccess.map((candidate, index) => (
+                <LeadMemberPreview
+                  key={index}
+                  CandidateName={candidate.full_name} // Use the combined full name
+                  voteAcquired={"600"}
+                  outOfVote={"800"}
+                  TopVotePercentage={"80%"}
+                  PreviewWidth={ITEM_WIDTH} // Adjust dynamically
+                />
+              ))}
             </ScrollView>
           </View>
 
-          <View>
-            <Text style={styles.focusText}>Focused Index: {focusedIndex}</Text>
+          <View className="px-4 py-2 ">
+            <Text className=" text-white ">Focused Index: {focusedIndex}</Text>
           </View>
         </View>
       </View>

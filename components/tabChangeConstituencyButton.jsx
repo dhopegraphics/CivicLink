@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#23272a", // Background color for the switch
     borderRadius: 25, // Rounded edges
     padding: 4,
-    width: "75%",
-    height: "30%",
+    width: 160,
+    height: 50,
   },
   switchButton: {
     flex: 1,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   switchText: {
     color: "#888", // Inactive text color
-    fontSize: 14,
+    fontSize: 10,
     fontWeight: "500",
   },
   activeText: {
