@@ -18,9 +18,9 @@ export const candidates = [
     last_name: "Mensah",
     party_id: "P001",
     position: "President",
-    is_user: true, // Indicates whether the candidate is also a user
-    user_id: "1", // Links to the users table if is_user is true
-    constituency_id: null, // Null for nationwide positions like President
+    is_user: true,
+    user_id: "1",
+    constituency_id: null,
   },
   {
     candidate_id: "C002",
@@ -35,6 +35,28 @@ export const candidates = [
   },
   {
     candidate_id: "C003",
+    election_id: "EL001",
+    first_name: "Nana Kwame",
+    last_name: "Bediako",
+    party_id: "P011",
+    position: "President",
+    is_user: true,
+    user_id: "20",
+    constituency_id: null,
+  },
+  {
+    candidate_id: "C004",
+    election_id: "EL001",
+    first_name: "Akwasi Addai",
+    last_name: "Odike",
+    party_id: "P010",
+    position: "President",
+    is_user: false,
+    user_id: null,
+    constituency_id: null,
+  },
+  {
+    candidate_id: "C005",
     election_id: "EL002",
     first_name: "Ama",
     last_name: "Asiedu",
@@ -42,10 +64,10 @@ export const candidates = [
     position: "Member of Parliament",
     is_user: true,
     user_id: "2",
-    constituency_id: "CST002",
+    constituency_id: "GAR003",
   },
   {
-    candidate_id: "C004",
+    candidate_id: "C006",
     election_id: "EL002",
     first_name: "Suzzy",
     last_name: "Kusi",
@@ -56,7 +78,7 @@ export const candidates = [
     constituency_id: "CST003",
   },
   {
-    candidate_id: "C005",
+    candidate_id: "C007",
     election_id: "EL002",
     first_name: "Kojo",
     last_name: "Nyarko",
@@ -64,10 +86,10 @@ export const candidates = [
     position: "Member of Parliament",
     is_user: true,
     user_id: "5",
-    constituency_id: "CST002",
+    constituency_id: "ASH001",
   },
   {
-    candidate_id: "C006",
+    candidate_id: "C008",
     election_id: "E002",
     first_name: "Ama",
     last_name: "Brefo",
@@ -75,32 +97,32 @@ export const candidates = [
     position: "Member of Parliament",
     is_user: false,
     user_id: null,
-    constituency_id: "CST003",
+    constituency_id: "ASH001",
   },
   {
-    candidate_id: "C007",
+    candidate_id: "C009",
     election_id: "EL003",
     first_name: "Akua",
     last_name: "Frempong",
     party_id: "P002",
     position: "National Democratic Party Flag Bearer",
-    is_user: true, // Indicates whether the candidate is also a user
-    user_id: "8", // Links to the users table if is_user is true
-    constituency_id: null, // Null for nationwide positions like President
+    is_user: true,
+    user_id: "8",
+    constituency_id: null,
   },
   {
-    candidate_id: "C008",
+    candidate_id: "C010",
     election_id: "EL001",
     first_name: "Nana Kwame",
     last_name: "Bediako",
     party_id: "P011",
     position: "President",
-    is_user: true, // Indicates whether the candidate is also a user
-    user_id: null, // Links to the users table if is_user is true
-    constituency_id: null, // Null for nationwide positions like President
+    is_user: true,
+    user_id: "20",
+    constituency_id: null,
   },
   {
-    candidate_id: "C009",
+    candidate_id: "C011",
     election_id: "EL001",
     first_name: "Akwasi Addai",
     last_name: "Odike",
